@@ -1,5 +1,6 @@
 name: Release
 on:
+  workflow_dispatch:
   push:
     tags:
       - '*'
@@ -8,7 +9,7 @@ jobs:
   build_for_release:
     uses: ./.github/workflows/build.yml
     with:
-      build-configs: '"Debug", "Release"'
+      build-configs: '"Release"'
 
   release:
     runs-on: ubuntu-latest
