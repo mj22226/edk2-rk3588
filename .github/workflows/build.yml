@@ -104,7 +104,7 @@ jobs:
           mv RK3588_NOR_FLASH.img ${{matrix.PLATFORM}}_UEFI_${{matrix.CONFIGURATION}}_${{steps.get_version_tag.outputs.version}}.img
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@main
         with:
           name: ${{matrix.PLATFORM}} UEFI ${{matrix.CONFIGURATION}} image
           path: ./*.img
