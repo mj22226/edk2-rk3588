@@ -23,13 +23,13 @@ jobs:
     strategy:
       matrix:
         PLATFORM:
-          - aio-3588q
-          - blade3
-          - edge2
-          - fydetab-duo
-          - h88k
-          - indiedroid-nova
-          - itx-3588j
+          # - aio-3588q
+          # - blade3
+          # - edge2
+          # - fydetab-duo
+          # - h88k
+          # - indiedroid-nova
+          # - itx-3588j
           - nanopc-cm3588-nas
           - nanopc-t6
           - nanopi-m6
@@ -37,15 +37,15 @@ jobs:
           - nanopi-r6s
           - orangepi-5
           - orangepi-5plus
-          - powerstation-6
-          - r58-mini
-          - r58x
+          # - powerstation-6
+          # - r58-mini
+          # - r58x
           - roc-rk3588s-pc
           - rock-5-itx
           - rock-5a
           - rock-5b
           - rock-5bplus
-          - station-m3
+          # - station-m3
         CONFIGURATION: ${{ fromJSON(format('[{0}]', inputs.build-configs || '"Debug"')) }}
     steps:
       - name: Checkout
@@ -104,7 +104,7 @@ jobs:
           mv RK3588_NOR_FLASH.img ${{matrix.PLATFORM}}_UEFI_${{matrix.CONFIGURATION}}_${{steps.get_version_tag.outputs.version}}.img
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@main
         with:
           name: ${{matrix.PLATFORM}} UEFI ${{matrix.CONFIGURATION}} image
           path: ./*.img
